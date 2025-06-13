@@ -1,10 +1,10 @@
+using Core;
 using UnityEngine;
 
-public class ExplodeCubes : MonoBehaviour
+public class ExplodeCubes : MainMono
 {
     private bool _collisionSet;
     public GameObject restartButton;
-    public GameObject InstaButton;
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Cube" && !_collisionSet)

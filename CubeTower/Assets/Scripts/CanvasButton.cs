@@ -8,6 +8,6 @@ public class CanvasButton : MonoBehaviour
     }
     public void Insta()
     {
-        Application.OpenURL("https://www.instagram.com/realxhausted/");
+        Application.OpenURL("https://www.instagram.com/fi33y_/");
     }
 }
