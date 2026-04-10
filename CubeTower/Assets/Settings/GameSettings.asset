@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ea69f8c31685e45b35bd078692397f, type: 3}
+  m_Name: GameSettings
+  m_EditorClassIdentifier: 
+  ChangePlaceSpeed: 0.5
+  CameraMoveSpeed: 2
+  CameraFollowYOffset: 7.91
+  HorizontalNudgeInterval: 3
+  LoseNudgeZ: 3
+  BgColorLerpSpeed: 0.5
+  BgColors:
+  - {r: 0.6994037, g: 0.8773585, b: 0.8572446, a: 0}
+  - {r: 0.4396137, g: 0.8396226, b: 0.7961434, a: 0}
+  - {r: 0.01241543, g: 0.8773585, b: 0.7840803, a: 0}
+  BgColorYThresholds: 020000000500000007000000
+  LoseVelocityThreshold: 0.1
+  ExplosionForce: 70
+  ExplosionRadius: 5

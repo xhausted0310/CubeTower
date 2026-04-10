@@ -571,6 +571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ac5a71780a9894986f2db036da95bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rotate: {fileID: 0}
 --- !u!4 &510800361
 Transform:
   m_ObjectHideFlags: 0
@@ -598,8 +599,9 @@ GameObject:
   m_Component:
   - component: {fileID: 584993426}
   - component: {fileID: 584993425}
+  - component: {fileID: 584993427}
   m_Layer: 0
-  m_Name: GameController
+  m_Name: GameInstaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -626,10 +628,29 @@ MonoBehaviour:
   - {fileID: 46035609}
   - {fileID: 1897924987}
   bgColors:
-  - {r: 0.6994037, g: 0.8773585, b: 0.85724455, a: 0}
-  - {r: 0.43961373, g: 0.8396226, b: 0.79614335, a: 0}
-  - {r: 0.012415428, g: 0.8773585, b: 0.7840803, a: 0}
+  - r: 0.6994037
+    g: 0.8773585
+    b: 0.85724455
+    a: 0
+  - r: 0.43961373
+    g: 0.8396226
+    b: 0.79614335
+    a: 0
+  - r: 0.012415428
+    g: 0.8773585
+    b: 0.7840803
+    a: 0
   mainCam: {fileID: 963194228}
+  _allCubesRb: {fileID: 0}
+  _isLose: 0
+  _firstCube: 0
+  _camMoveToY: 0
+  _prevCountMaxHor: 0
+  _toCameraColor:
+    r: 0
+    g: 0
+    b: 0
+    a: 0
 --- !u!4 &584993426
 Transform:
   m_ObjectHideFlags: 0
@@ -645,6 +666,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &584993427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584993424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f409d653f0fcc6a4fa3fbbb574e1ce38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghostCube: {fileID: 232051396}
+  allCubesTransform: {fileID: 1606444167}
+  allCubesRb: {fileID: 1606444166}
+  cubePrefab: {fileID: 4969378515400298371, guid: a1a10f4962df69d4abfae871bcc980d8, type: 3}
+  mainCamera: {fileID: 963194228}
+  canvasStartPage:
+  - {fileID: 196323316}
+  - {fileID: 46035609}
+  - {fileID: 1897924987}
+  gameSettings: {fileID: 11400000, guid: ea0bcdaf47fd0c246bbe7446141b5b24, type: 2}
 --- !u!1 &661463284
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,7 +1042,6 @@ GameObject:
   m_Component:
   - component: {fileID: 873962400}
   - component: {fileID: 873962399}
-  - component: {fileID: 873962398}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -1007,18 +1049,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &873962398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 873962397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76f8059b934dce248966f4832486a98e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &873962399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1033,7 +1063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers:
-  - {fileID: 873962398}
+  - {fileID: 584993427}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -1077,6 +1107,7 @@ GameObject:
   - component: {fileID: 918968998}
   - component: {fileID: 918968997}
   - component: {fileID: 918968999}
+  - component: {fileID: 918969000}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -1091,7 +1122,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918968996}
-  m_Material: {fileID: 13400000, guid: 6fb2b13c8c026454a8c0bc2296be7a0f, type: 2}
+  m_Material: {fileID: 1860869173}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1130,6 +1161,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f68c7ee1cb54c3c42a1ee1a9d4b5b527, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _collisionSet: 0
+  restartButton: {fileID: 661463284}
+--- !u!114 &918969000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918968996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aa1595ebacbd55498e99317fac7bc73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   restartButton: {fileID: 661463284}
@@ -1451,6 +1496,18 @@ Transform:
   - {fileID: 346725645}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!134 &1860869173
+PhysicMaterial:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ground (Instance)
+  dynamicFriction: 0.6
+  staticFriction: 0.6
+  bounciness: 0.6
+  frictionCombine: 0
+  bounceCombine: 0
 --- !u!1 &1897924987
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,15 @@
 {
   "dependencies": {
+    "com.coplaydev.unity-mcp": {
+      "version": "https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.0.2",
+        "com.unity.test-framework": "1.1.31"
+      },
+      "hash": "73eb27aeccfa8e0676eaf3304136e9b85953d913"
+    },
     "com.unity.ai.navigation": {
       "version": "1.1.6",
       "depth": 0,
@@ -44,6 +54,13 @@
     "com.unity.ide.vscode": {
       "version": "1.2.5",
       "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.2.1",
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
